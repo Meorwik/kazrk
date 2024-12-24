@@ -1,4 +1,4 @@
-const question_1 = {
+let question_1 = {
   number: 1,
   question: "Вячеслав Ким қай қалада дүниеге келген?",
   answers: [
@@ -10,7 +10,7 @@ const question_1 = {
    correct_answer: "B) Алматы"
 };
 
-const question_2 = {
+let question_2 = {
   number: 2,
   question: "Вячеслав Ким қай оқу орнын тәмамдады?",
   answers: [
@@ -22,7 +22,7 @@ const question_2 = {
    correct_answer: "B) Алматы халық шаруашылығы институты"
 };
 
-const question_3 = {
+let question_3 = {
   number: 3,
   question: "Вячеслав Ким Kaspi.kz директорлар кеңесінің төрағасы болған жыл?",
   answers: [
@@ -34,7 +34,7 @@ const question_3 = {
    correct_answer: "C) 2006"
 };
 
-const question_4 = {
+let question_4 = {
   number: 4,
   question: "1990 жылдары Вячеслав Ким құрған компаниялар?",
   answers: [
@@ -46,7 +46,7 @@ const question_4 = {
    correct_answer: "A) ALTAIR және Asia Technics"
 };
 
-const question_5 = {
+let question_5 = {
   number: 5,
   question: "Kaspi.kz қай жылы Лондон қор биржасында IPO өткізді?",
   answers: [
@@ -58,7 +58,7 @@ const question_5 = {
    correct_answer: "C) 2020"
 };
 
-const question_6 = {
+let question_6 = {
   number: 6,
   question: "Kaspi.kz-тағы Вячеслав Кимнің рөлі қандай?",
   answers: [
@@ -70,7 +70,7 @@ const question_6 = {
    correct_answer: "B) Негізін қалаушы және директорлар кеңесінің төрағасы"
 };
 
-const question_7 = {
+let question_7 = {
   number: 7,
   question: "2024 жылы Вячеслав Кимнің байлығы қанша миллиард доллар болды?",
   answers: [
@@ -82,7 +82,7 @@ const question_7 = {
    correct_answer: "C) 5"
 };
 
-const question_8 = {
+let question_8 = {
   number: 8,
   question: "Вячеслав Ким қандай салаларды қолдайды?",
   answers: [
@@ -94,7 +94,7 @@ const question_8 = {
    correct_answer: "B) Білім беру және қайырымдылық"
 };
 
-const question_9 = {
+let question_9 = {
   number: 9,
   question: "Kaspi.kz компаниясының негізгі стратегиясы қандай?",
   answers: [
@@ -106,7 +106,7 @@ const question_9 = {
    correct_answer: "B) Клиенттерге ыңғайлы цифрлық шешімдер ұсыну"
 };
 
-const question_10 = {
+let question_10 = {
   number: 10,
   question: "Вячеслав Ким Қазақстан жастарына қалай әсер етеді?",
   answers: [
@@ -118,7 +118,7 @@ const question_10 = {
    correct_answer: "A) Жеке үлгісімен көшбасшылық пен кәсіпкерлікті насихаттау"
 };
 
-const assessment_data = [
+let assessment_data = [
   question_1,
   question_2,
   question_3,
@@ -269,22 +269,21 @@ function Click(currentQuetion, answerValue, i)
 
 const questions = []
 
-for (let i=0; i<assessment_data.length; i++)
-{
-  let answers = [];
-  for (let j=0; j<4; j++)
-  {
-    answers.push(
-      new Answer(assessment_data[i].answers[j])
+let correctAnswer;
+for (let i = 0; i < assessment_data.length; i++) {
+    let answers = [];
+    for (let j = 0; j < 4; j++) {
+        answers.push(
+            new Answer(assessment_data[i].answers[j])
+        );
+    }
+    let question = new Question(
+        text = assessment_data[i].question,
+        answers = answers,
+        correctAnswer = assessment_data[i].correct_answer
     );
-  }
-  let question = new Question(
-    text=assessment_data[i].question,
-    answers=answers,
-    correctAnswer=assessment_data[i].correct_answer
-  );
 
-  questions.push(question);
+    questions.push(question);
 }
 
 
